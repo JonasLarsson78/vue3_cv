@@ -5,7 +5,7 @@
   </div>
   
   <div class="list">
-    <div v-for="t in list" class="list-loop">
+    <div v-for="t in list" :key="t.title" class="list-loop">
       <div class="flex">
         <div class="dott"/>
         <div class="line" />
@@ -30,15 +30,12 @@
 
 <script setup>
 import SvgComponent from '../svg/SvgComponent.vue'
-const props = defineProps({
+defineProps({
   title: String,
   list: Array,
   icon: String,
 })
 
-function imageUrl(icon) {
-  return `src/assets/${icon}.svg`
-}
 </script>
 
 <style scoped>

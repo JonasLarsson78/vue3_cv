@@ -9,23 +9,23 @@
 
       <img class="me-img" src="../assets/me_commputer.png"/>
 
-      <List title="Om Mig" :list="me" icon="info"/>
+      <ListComp title="Om Mig" :list="me" icon="info"/>
 
       <ListContactInfo title="Kontakta Mig" :list="contact" icon="personal"/>
 
-      <List title="Utbildning" :list="ed" icon="ed"/>
-      <List title="Arbetslivserfarenhet" :list="work" icon="work"/>
-      <List title="Språk" :list="lang" icon="lang"/>
-      <List title="Färdigheter" :list="skills" icon="skills"/>
-      <List title="Hobbys & Intressen" :list="hobby" icon="hobby"/>
+      <ListComp title="Utbildning" :list="ed" icon="ed"/>
+      <ListComp title="Arbetslivserfarenhet" :list="work" icon="work"/>
+      <ListComp title="Språk" :list="lang" icon="lang"/>
+      <ListComp title="Färdigheter" :list="skills" icon="skills"/>
+      <ListComp title="Hobbys & Intressen" :list="hobby" icon="hobby"/>
     </div>
 </template>
 
 <script setup>
-  import List from '../components/List.vue'
+  import ListComp from '../components/ListComp.vue'
   import ListContactInfo from '../components/ListContactInfo.vue'
-  import SvgComponentVue from '../svg/SvgComponent.vue';
-  import { computed } from 'vue';
+  import SvgComponentVue from '../svg/SvgComponent.vue'
+  import { computed } from 'vue'
   import { ed, work, lang, skills, hobby, contact, me } from '../content/index'
 
   const yearTitle = computed(() => {

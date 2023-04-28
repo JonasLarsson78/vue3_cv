@@ -1,8 +1,8 @@
 <template>
   <ColorTheme />
   <Transition name="fade">
-    <Loader v-if="loading" />
-    <Cv v-else />
+    <LoaderComp v-if="loading" />
+    <MyCv v-else />
   </Transition>
 </template>
 
@@ -10,15 +10,15 @@
   import { ref, onMounted } from 'vue'
 
   import ColorTheme from './components/ColorTheme.vue'
-  import Cv from './components/Cv.vue'
-  import Loader from './components/Loader.vue'
+  import MyCv from './components/MyCv.vue'
+  import LoaderComp from './components/LoaderComp.vue'
 
   const loading = ref(true)
 
   onMounted(() => {
     setTimeout(() => {
       loading.value = false
-    }, 4500);
+    }, 4500)
   })
 </script>
 

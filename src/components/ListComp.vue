@@ -4,7 +4,7 @@
     <h2>{{ title }}</h2>
   </div>
   <div class="list">
-    <div v-for="t in list" :class="['list-loop', { hover: t.modal }]" >
+    <div v-for="t in list" :key="t.title" :class="['list-loop', { hover: t.modal }]" >
       <div class="flex">
         <div class="dott"/>
         <div class="line" />
@@ -25,7 +25,7 @@
     <div class="line-end"/>
     <div class="dott3"/> 
   </div>
-  <Modal
+  <ModalComp
     :showModal="show"
     :modalContent="modalContent"
     @close="closeModal"
@@ -35,7 +35,7 @@
 
 <script setup>
 import { computed, ref } from 'vue'
-import Modal from './Modal.vue'
+import ModalComp from './ModalComp.vue'
 import SvgComponent from '../svg/SvgComponent.vue'
 
 const show = ref(false)
@@ -44,7 +44,7 @@ const currentText = ref('')
 const currentLink = ref('')
 const currentLinkTitle = ref('')
 
-const props = defineProps({
+defineProps({
   title: String,
   list: Array,
   icon: String,

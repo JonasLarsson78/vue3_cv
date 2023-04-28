@@ -16,14 +16,14 @@ onMounted(() => {
 
   if (!baseColor) {
     const color = getComputedStyle(document.documentElement)
-    .getPropertyValue('--base-color');
+    .getPropertyValue('--base-color')
 
     colorValue.value = color
     localStorage.setItem('base-color', color) 
   } else {
     colorValue.value = baseColor
     document.documentElement.style
-    .setProperty('--base-color', baseColor);
+    .setProperty('--base-color', baseColor)
   }
 
   
@@ -32,7 +32,7 @@ onMounted(() => {
 function test(e) {
   const color = e.target.value
   document.documentElement.style
-    .setProperty('--base-color', color);
+    .setProperty('--base-color', color)
   localStorage.setItem('base-color', color)   
 }
 </script>

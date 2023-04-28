@@ -31,7 +31,7 @@ import Skills from './SvgSkills.vue'
 import Work from './SvgWork.vue'
 import Ring from './SvgRing.vue'
 
-const props = defineProps({
+defineProps({
   icon: String,
   size: {
     type: String,

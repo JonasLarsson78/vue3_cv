@@ -31,8 +31,8 @@
 </template>
 
 <script setup>
-import { onUpdated } from 'vue';
-const emit = defineEmits()
+import { onUpdated } from 'vue'
+const emit = defineEmits(['close'])
 
 const props = defineProps({
   showModal: {
