@@ -39,6 +39,7 @@ const yearTitle = computed(() => {
 <style scoped>
 h1 {
   margin: 0;
+  margin-top: 30px;
 }
 
 h2 {

@@ -3,6 +3,7 @@
     <label>Sidfärg:</label>
     <input class="theme-color-picker" type="color" @input="test" :value="colorValue" />
   </div>
+  <hr>
 </template>
 
 <script setup>
@@ -39,7 +40,7 @@ function test(e) {
 <style scoped>
 .theme-color {
   position: absolute;
-  top: 10px;
+  top: 20px;
   left: 10px;
   display: flex;
   align-items: center;
@@ -49,5 +50,13 @@ function test(e) {
   background-color: var(--prime-color);
   border: 2px solid var(--base-color);
   margin-left: 10px;
+  border-radius: 5px;
+}
+
+hr {
+  position: relative;
+  left: -60px;
+  width: 100vw;
+  border-color: var(--base-color);
 }
 </style>
