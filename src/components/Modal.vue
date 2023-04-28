@@ -1,31 +1,32 @@
 <template>
   <Teleport to="body">
-    <div v-if="showModal" class="container" >
-      <div class="centered">
-        <div class="close" @click="close">✕</div>
-        <div class="content">
-          <h2 v-if="modalContent.title">
-            {{ modalContent.title }}
-          </h2>
-          <p v-if="modalContent.text">
-            {{ modalContent.text }}
-          </p>
-          <div>
-            <a
-              v-if="modalContent.link"
-              :href="modalContent.link"
-              target="_blank"
-              >
-              {{ modalContent.linkTitle }}
-            </a>
+    <Transition name="fade">
+      <div v-if="showModal" class="container" >
+        <div class="centered">
+          <div class="close" @click="close">✕</div>
+          <div class="content">
+            <h2 v-if="modalContent.title">
+              {{ modalContent.title }}
+            </h2>
+            <p v-if="modalContent.text">
+              {{ modalContent.text }}
+            </p>
+            <div>
+              <a
+                v-if="modalContent.link"
+                :href="modalContent.link"
+                target="_blank"
+                >
+                {{ modalContent.linkTitle }}
+              </a>
+            </div>
+            <div class="flex-center">
+              <button class="btn" @click="close">Ok</button>
+            </div>
           </div>
-          <div class="flex-center">
-            <button class="btn" @click="close">Ok</button>
-          </div>
-          
         </div>
       </div>
-    </div>
+    </Transition>
   </Teleport>
 </template>
 
@@ -122,5 +123,15 @@ function close() {
 
 .btn:hover {
   opacity: 0.7;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 1.0s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

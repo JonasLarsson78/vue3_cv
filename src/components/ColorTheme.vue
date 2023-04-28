@@ -51,6 +51,7 @@ function test(e) {
   border: 2px solid var(--base-color);
   margin-left: 10px;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 hr {
