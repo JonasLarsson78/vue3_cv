@@ -1,7 +1,7 @@
 <template>
   <div class="theme-color">
     <label>Sidfärg:</label>
-    <input class="theme-color-picker" type="color" @input="test" :value="colorValue" />
+    <input class="theme-color-picker" type="color" @input="input" :value="colorValue" />
   </div>
   <hr>
 </template>
@@ -12,6 +12,13 @@ import { ref, onMounted } from 'vue'
 const colorValue = ref('#000000')
 
 onMounted(() => {
+  const urlQuery = new URLSearchParams(window.location.search)
+  const colorQuery = urlQuery.get('color')
+
+  if (colorQuery) {
+    localStorage.setItem('base-color', '#' + colorQuery)
+  }
+
   const baseColor = localStorage.getItem('base-color')
 
   if (!baseColor) {
@@ -29,11 +36,16 @@ onMounted(() => {
   
 })
 
-function test(e) {
+function input(e) {
   const color = e.target.value
   document.documentElement.style
     .setProperty('--base-color', color)
-  localStorage.setItem('base-color', color)   
+  localStorage.setItem('base-color', color)
+  
+  const urlQuery = new URLSearchParams(window.location.search)
+  const c = color.replace('#', '')
+  urlQuery.set('color', c)
+  window.history.replaceState({}, '', `?${urlQuery}`)
 }
 </script>
 
