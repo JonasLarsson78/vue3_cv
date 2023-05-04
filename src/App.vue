@@ -1,5 +1,8 @@
 <template>
   <ColorTheme />
+  <PageLanguage />
+  <hr>
+
   <Transition name="fade">
     <LoaderComp v-if="loading" />
     <MyCv v-else />
@@ -10,6 +13,7 @@
   import { ref, onMounted } from 'vue'
 
   import ColorTheme from './components/ColorTheme.vue'
+  import PageLanguage from './components/PageLanguage.vue'
   import MyCv from './components/MyCv.vue'
   import LoaderComp from './components/LoaderComp.vue'
 
@@ -30,5 +34,12 @@
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+hr {
+  position: relative;
+  left: -60px;
+  width: 100vw;
+  border-color: var(--base-color);
 }
 </style>

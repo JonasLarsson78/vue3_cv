@@ -4,20 +4,20 @@
 
       <div class="flex">
         <SvgComponentVue icon="code" size="medium"/>
-        <h2>Systemutvecklare</h2> 
+        <h2>{{ pageContent.workTitle }}</h2> 
       </div>
 
       <img class="me-img" src="../assets/me_commputer.png"/>
 
-      <ListComp title="Om Mig" :list="me" icon="info"/>
+      <ListComp :title="pageContent.lists?.about" :list="pageContent.me" icon="info"/>
 
-      <ListContactInfo title="Kontakta Mig" :list="contact" icon="personal"/>
+      <ListContactInfo :title="pageContent.lists?.contact" :list="pageContent.contact" icon="personal"/>
 
-      <ListComp title="Utbildning" :list="ed" icon="ed"/>
-      <ListComp title="Arbetslivserfarenhet" :list="work" icon="work"/>
-      <ListComp title="Språk" :list="lang" icon="lang"/>
-      <ListComp title="Färdigheter" :list="skills" icon="skills"/>
-      <ListComp title="Hobbys & Intressen" :list="hobby" icon="hobby"/>
+      <ListComp :title="pageContent.lists?.education" :list="pageContent.education" icon="ed"/>
+      <ListComp :title="pageContent.lists?.work" :list="pageContent.work" icon="work"/>
+      <ListComp :title="pageContent.lists?.language" :list="pageContent.language" icon="lang"/>
+      <ListComp :title="pageContent.lists?.skills" :list="pageContent.skills" icon="skills"/>
+      <ListComp :title="pageContent.lists?.hobby" :list="pageContent.hobby" icon="hobby"/>
     </div>
 </template>
 
@@ -26,12 +26,19 @@
   import ListContactInfo from '../components/ListContactInfo.vue'
   import SvgComponentVue from '../svg/SvgComponent.vue'
   import { computed } from 'vue'
-  import { ed, work, lang, skills, hobby, contact, me } from '../content/index'
+  import { content } from '../content/index'
+  import { useLanguageStore } from '../store/index'
+
+  const languageStore = useLanguageStore()
 
   const yearTitle = computed(() => {
     const now = new Date()
     const year = now.getFullYear()
     return `${year} - Cv - Jonas Larsson`
+  })
+
+  const pageContent = computed(() => {
+    return content(languageStore.getCurrentLanguage)
   })
 </script>
 

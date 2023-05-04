@@ -1,15 +1,22 @@
 <template>
   <div class="theme-color">
-    <label>Sidfärg:</label>
+    <label>{{ pageContent.pageColor }}</label>
     <input class="theme-color-picker" type="color" @input="input" :value="colorValue" />
   </div>
-  <hr>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { content } from '../content/index'
+import { ref, onMounted, computed } from 'vue'
+import { useLanguageStore } from '../store/index'
+
+const languageStore = useLanguageStore()
 
 const colorValue = ref('#000000')
+
+const pageContent = computed(() => {
+    return content(languageStore.getCurrentLanguage)
+  })
 
 onMounted(() => {
   const urlQuery = new URLSearchParams(window.location.search)
@@ -64,12 +71,5 @@ function input(e) {
   margin-left: 10px;
   border-radius: 5px;
   cursor: pointer;
-}
-
-hr {
-  position: relative;
-  left: -60px;
-  width: 100vw;
-  border-color: var(--base-color);
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h2>Laddar CV...</h2>
+    <h2>{{ pageContent.loaderText }}</h2>
     <div class="flex">
       <span class="loader"></span>
     </div>
@@ -9,7 +9,15 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
+import { content } from '../content/index'
+import { useLanguageStore } from '../store/index'
 
+const languageStore = useLanguageStore()
+
+const pageContent = computed(() => {
+    return content(languageStore.getCurrentLanguage)
+  })
 </script>
 
 <style scoped>
