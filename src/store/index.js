@@ -13,3 +13,17 @@ export const useLanguageStore = defineStore('language', {
     }
   },
 })
+
+export const useColorStore = defineStore('color', {
+  state: () => ({
+    currentColor: '#0e53dd'
+  }),
+  getters: {
+    getCurrentColor: (state) => state.currentColor,
+  },
+  actions: {
+    setCurrentColor(color) {
+      this.currentColor = color
+    }
+  },
+})

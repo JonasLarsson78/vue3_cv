@@ -1,18 +1,17 @@
 <template>
   <div class="theme-color">
     <label>{{ pageContent.pageColor }}</label>
-    <input class="theme-color-picker" type="color" @input="input" :value="colorValue" />
+    <input class="theme-color-picker" type="color" @input="input" :value="colorStore.getCurrentColor" />
   </div>
 </template>
 
 <script setup>
 import { content } from '../content/index'
-import { ref, onMounted, computed } from 'vue'
-import { useLanguageStore } from '../store/index'
+import { onMounted, computed } from 'vue'
+import { useLanguageStore, useColorStore } from '../store/index'
 
 const languageStore = useLanguageStore()
-
-const colorValue = ref('#000000')
+const colorStore = useColorStore()
 
 const pageContent = computed(() => {
     return content(languageStore.getCurrentLanguage)
@@ -32,10 +31,10 @@ onMounted(() => {
     const color = getComputedStyle(document.documentElement)
     .getPropertyValue('--base-color')
 
-    colorValue.value = color
+    colorStore.setCurrentColor(color)
     localStorage.setItem('base-color', color) 
   } else {
-    colorValue.value = baseColor
+    colorStore.setCurrentColor(baseColor)
     document.documentElement.style
     .setProperty('--base-color', baseColor)
   }
@@ -48,6 +47,7 @@ function input(e) {
   document.documentElement.style
     .setProperty('--base-color', color)
   localStorage.setItem('base-color', color)
+  colorStore.setCurrentColor(color)
   
   const urlQuery = new URLSearchParams(window.location.search)
   const c = color.replace('#', '')
