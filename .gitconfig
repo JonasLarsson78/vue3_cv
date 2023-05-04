@@ -1,0 +1,6 @@
+# This is Git's per-user configuration file.
+[user]
+	email = jl.7804@gmail.com
+	name = JonasLarsson78
+[core]
+	editor = code . --wait
