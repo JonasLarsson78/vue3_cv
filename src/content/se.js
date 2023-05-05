@@ -15,11 +15,11 @@ export default {
   languageOptions: [
     {
       text: 'Svenska',
-      value: 'se'
+      value: 'se',
     },
     {
       text: 'Engelska',
-      value: 'en'
+      value: 'en',
     }
   ],
   me: [

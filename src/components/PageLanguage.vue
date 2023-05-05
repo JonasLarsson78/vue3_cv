@@ -4,7 +4,9 @@
    <select class="page-language-select" @input="input" :value="languageStore.getCurrentLanguage">
     <option
       v-for="o in pageContent.languageOptions"
-      :key="o.value" :value="o.value">{{ o.text }}</option>
+      :key="o.value" :value="o.value">
+      {{ o.text }}
+    </option>
     </select> 
   </div>
   

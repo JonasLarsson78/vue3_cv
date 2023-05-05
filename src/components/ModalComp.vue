@@ -69,6 +69,7 @@ function close() {
     bottom:0;
     text-align:center;
     background:#000000B0;
+    z-index: 200;
 }
 .centered {
     position: relative;
