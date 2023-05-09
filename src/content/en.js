@@ -1,6 +1,8 @@
 export default {
-  pageColor: 'Page Color:',
+  pageColor: 'Color:',
+  backColor: 'Background color:',
   pageLanguage: 'Language:',
+  resetButton: 'Reset',
   workTitle: 'System Developer',
   loaderText: 'Loading CV...',
   lists: {

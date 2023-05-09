@@ -42,7 +42,7 @@ onMounted(() => {
 .page-language {
   position: absolute;
   top: 20px;
-  left: 190px;
+  left: 10px;
   display: flex;
   align-items: center;
 }

@@ -48,7 +48,7 @@
   height: 70px;
   width: 100vw;
   background-color: var(--prime-color);
-  background: linear-gradient(90deg, var(--prime-color) 65%, var(--base-color) 100%);
+  background: linear-gradient(90deg, var(--prime-color) 60%, var(--base-color) 100%);
   z-index: 100;
 }
 

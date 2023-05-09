@@ -16,14 +16,19 @@ export const useLanguageStore = defineStore('language', {
 
 export const useColorStore = defineStore('color', {
   state: () => ({
-    currentColor: '#0e53dd'
+    currentPrimeColor: '',
+    currentBaseColor: ''
   }),
   getters: {
-    getCurrentColor: (state) => state.currentColor,
+    getCurrentPrimeColor: (state) => state.currentPrimeColor,
+    getCurrentBaseColor: (state) => state.currentBaseColor,
   },
   actions: {
-    setCurrentColor(color) {
-      this.currentColor = color
+    setCurrentPrimeColor(color) {
+      this.currentPrimeColor = color
+    },
+    setCurrentBaseColor(color) {
+      this.currentBaseColor = color
     }
   },
 })

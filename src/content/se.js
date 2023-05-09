@@ -1,6 +1,8 @@
 export default {
-  pageColor: 'Sidfärg:',
+  pageColor: 'Färg:',
+  backColor: 'Bakgrundsfärg:',
   pageLanguage: 'Språk:',
+  resetButton: 'Nollställ',
   workTitle: 'Systemutvecklare',
   loaderText: 'Laddar CV...',
   lists: {
