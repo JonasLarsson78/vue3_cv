@@ -1,7 +1,7 @@
 import se from './se'
 import en from './en'
 
-export const content = (c) => {
+export const getContent = (c) => {
   switch (c) {
     case 'se':
       return se

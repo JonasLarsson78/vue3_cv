@@ -1,9 +1,9 @@
 <template>
   <div class="page-language">
-    <label>{{ pageContent.pageLanguage }}</label>
+    <label>{{ content.pageLanguage }}</label>
    <select class="page-language-select" @input="input" :value="languageStore.getCurrentLanguage">
     <option
-      v-for="o in pageContent.languageOptions"
+      v-for="o in content.languageOptions"
       :key="o.value" :value="o.value">
       {{ o.text }}
     </option>
@@ -14,13 +14,13 @@
 
 <script setup>
 import { computed, onMounted } from 'vue'
-import { content } from '../content/index'
+import { getContent } from '../content'
 import { useLanguageStore } from '../store/index'
 
 const languageStore = useLanguageStore()
 
-const pageContent = computed(() => {
-    return content(languageStore.getCurrentLanguage)
+const content = computed(() => {
+    return getContent(languageStore.getCurrentLanguage)
   })
 
 function input(e) {

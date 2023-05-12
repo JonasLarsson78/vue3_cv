@@ -1,13 +1,13 @@
 <template>
   <div class="theme-color">
-    <label>{{ pageContent.pageColor }}</label>
+    <label>{{ content.pageColor }}</label>
     <input
       class="theme-color-picker"
       type="color" 
       @input="inputBase"
       :value="colorStore.getCurrentBaseColor" />
     <span class="theme-color-margin"/>
-    <label>{{ pageContent.backColor }}</label>
+    <label>{{ content.backColor }}</label>
     <input
       class="theme-color-picker"
       type="color" @input="inputPrime"
@@ -15,21 +15,21 @@
     <button
       class="theme-color-reset"
       @click="reset">
-      {{ pageContent.resetButton }}
+      {{ content.resetButton }}
     </button>
   </div>
 </template>
 
 <script setup>
-import { content } from '../content/index'
+import { getContent } from '../content'
 import { onMounted, computed } from 'vue'
 import { useLanguageStore, useColorStore } from '../store/index'
 
 const languageStore = useLanguageStore()
 const colorStore = useColorStore()
 
-const pageContent = computed(() => {
-    return content(languageStore.getCurrentLanguage)
+const content = computed(() => {
+    return getContent(languageStore.getCurrentLanguage)
   })
 
 onMounted(() => {

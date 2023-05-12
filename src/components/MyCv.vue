@@ -4,20 +4,20 @@
 
       <div class="flex">
         <SvgComponentVue icon="code" size="medium"/>
-        <h2>{{ pageContent.workTitle }}</h2> 
+        <h2>{{ content.workTitle }}</h2> 
       </div>
 
       <img class="me-img" src="../assets/me_commputer.png"/>
 
-      <ListComp :title="pageContent.lists?.about" :list="pageContent.me" icon="info"/>
+      <ListComp :title="content.lists?.about" :list="content.me" icon="info"/>
 
-      <ListContactInfo :title="pageContent.lists?.contact" :list="pageContent.contact" icon="personal"/>
+      <ListContactInfo :title="content.lists?.contact" :list="content.contact" icon="personal"/>
 
-      <ListComp :title="pageContent.lists?.education" :list="pageContent.education" icon="ed"/>
-      <ListComp :title="pageContent.lists?.work" :list="pageContent.work" icon="work"/>
-      <ListComp :title="pageContent.lists?.language" :list="pageContent.language" icon="lang"/>
-      <ListComp :title="pageContent.lists?.skills" :list="pageContent.skills" icon="skills"/>
-      <ListComp :title="pageContent.lists?.hobby" :list="pageContent.hobby" icon="hobby"/>
+      <ListComp :title="content.lists?.education" :list="content.education" icon="ed"/>
+      <ListComp :title="content.lists?.work" :list="content.work" icon="work"/>
+      <ListComp :title="content.lists?.language" :list="content.language" icon="lang"/>
+      <ListComp :title="content.lists?.skills" :list="content.skills" icon="skills"/>
+      <ListComp :title="content.lists?.hobby" :list="content.hobby" icon="hobby"/>
     </div>
 </template>
 
@@ -26,7 +26,7 @@
   import ListContactInfo from '../components/ListContactInfo.vue'
   import SvgComponentVue from '../svg/SvgComponent.vue'
   import { computed } from 'vue'
-  import { content } from '../content/index'
+  import { getContent } from '../content'
   import { useLanguageStore } from '../store/index'
 
   const languageStore = useLanguageStore()
@@ -37,8 +37,8 @@
     return `${year} - Cv - Jonas Larsson`
   })
 
-  const pageContent = computed(() => {
-    return content(languageStore.getCurrentLanguage)
+  const content = computed(() => {
+    return getContent(languageStore.getCurrentLanguage)
   })
 </script>
 
