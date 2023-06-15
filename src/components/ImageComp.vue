@@ -19,10 +19,10 @@ import { onMounted } from 'vue'
 
   const imgUrl = (fileName) => {
     const base = document.location.origin
-    const noImage = base  + '/src/assets/no-image.webp'
-    const image = base + '/src/assets/' + fileName
+    const noImage = base  + '/assets/no-image.webp'
+    const image = base + '/assets/' + fileName
 
-    return imageExists(base + '/src/assets/' + fileName) ?
+    return imageExists(base + '/assets/' + fileName) ?
     image :
     noImage
   }
