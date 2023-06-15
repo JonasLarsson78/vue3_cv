@@ -199,5 +199,8 @@ export default {
       title: 'Family/Friends',
       text: ''
     }
-  ]
+  ],
+    footer: {
+    text: 'Designed by Jonas Larsson'
+  }
 }

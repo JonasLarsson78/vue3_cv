@@ -1,10 +1,19 @@
 <template>
   <div class="footer">
-    <div>Designad av Jonas Larsson</div>
+    <div>{{ content.text }}</div>
   </div>
 </template>
 
 <script setup>
+  import { computed } from 'vue'
+  import { useLanguageStore } from '../store/index'
+  import { getContent } from '../content'
+
+  const languageStore = useLanguageStore()
+
+  const content = computed(() => {
+    return getContent(languageStore.getCurrentLanguage)?.footer
+  })
 </script>
 
 <style scoped>

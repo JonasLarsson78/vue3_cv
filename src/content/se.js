@@ -199,5 +199,8 @@ export default {
       title: 'Familj/Vänner',
       text: ''
     }
-  ]
+  ],
+  footer: {
+    text: 'Designad av Jonas Larsson'
+  }
 }
