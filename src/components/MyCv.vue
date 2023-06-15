@@ -7,7 +7,7 @@
         <h2>{{ content.workTitle }}</h2> 
       </div>
 
-      <img class="me-img" src="../assets/me_commputer.png"/>
+      <ImageComp url="me_commputer.png" size="large" />
 
       <ListComp :title="content.lists?.about" :list="content.me" icon="info"/>
 
@@ -24,6 +24,7 @@
 <script setup>
   import ListComp from '../components/ListComp.vue'
   import ListContactInfo from '../components/ListContactInfo.vue'
+  import ImageComp from '../components/ImageComp.vue'
   import SvgComponentVue from '../svg/SvgComponent.vue'
   import { computed } from 'vue'
   import { getContent } from '../content'

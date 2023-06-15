@@ -5,6 +5,8 @@
   --prime-color:#020024;
 
   --base-link-color-filter: brightness(2);
+
+  --profile-img-size: 200px;
 }
 
 body {
