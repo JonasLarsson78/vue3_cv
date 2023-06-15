@@ -18,9 +18,11 @@ import { onMounted } from 'vue'
   })
 
   const imgUrl = (fileName) => {
+    const noImage = new URL('../assets/no-image.webp', import.meta.url).href
+    const image = new URL('../assets/' + fileName, import.meta.url).href
     return imageExists('./src/assets/' + fileName) ?
-    './src/assets/' + fileName :
-    './src/assets/no-image.webp'
+    image :
+    noImage
   }
 
   onMounted(() => {
