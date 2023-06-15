@@ -1,14 +1,15 @@
 <template>
-    <img class="img" :src="imgUrl(props.url)"/>
+    <img class="img" :src="imgUrl"/>
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+  import { onMounted, computed } from 'vue'
+
   const props = defineProps({
-    url: {
-      type: String,
+    img: {
+      type: Boolean,
       required: false,
-      default: 'no-image.webp'
+      default: false
     },
     size: {
       type: String,
@@ -17,15 +18,9 @@ import { onMounted } from 'vue'
     }
   })
 
-  const imgUrl = (fileName) => {
-    const base = document.location.origin
-    const noImage = base  + '/assets/no-image.webp'
-    const image = base + '/assets/' + fileName
-
-    return imageExists(base + '/assets/' + fileName) ?
-    image :
-    noImage
-  }
+  const imgUrl = computed(() => {
+    return props.img ? new URL('../assets/profile-image.png',import.meta.url).href : new URL('../assets/no-image.webp',import.meta.url).href 
+  })
 
   onMounted(() => {
     changeSize()
@@ -36,16 +31,6 @@ import { onMounted } from 'vue'
       .setProperty('--profile-img-size', size + 'px')
   }
 
-  function imageExists(image_url){
-
-    const http = new XMLHttpRequest()
-
-    http.open('HEAD', image_url, false)
-    http.send()
-
-    return http.status !== 404
-
-  }
 
   function changeSize() {
     switch (props.size) {

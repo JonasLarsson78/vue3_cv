@@ -7,7 +7,7 @@
         <h2>{{ content.workTitle }}</h2> 
       </div>
 
-      <ImageComp url="me_commputer.png" size="large" />
+      <ImageComp img size="large" />
 
       <ListComp :title="content.lists?.about" :list="content.me" icon="info"/>
 
