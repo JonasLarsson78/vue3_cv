@@ -21,7 +21,7 @@ import { onMounted } from 'vue'
     const noImage = new URL('../assets/no-image.webp', import.meta.url).href
     const image = new URL(import.meta.env.MODE === 'development' ? '../assets/' + fileName : '../src/assets/' + fileName, import.meta.url).href
 
-    return imageExists(image) ?
+    return imageExists('../assets/' + fileName) ?
     image :
     noImage
   }
